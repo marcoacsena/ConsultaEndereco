@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                progressBar.setVisibility(View.VISIBLE);
-
                 String cepDigitado = cep.getText().toString();
 
                 if(!cepDigitado.isEmpty()){
                     obterCep(cepDigitado);
+                    progressBar.setVisibility(View.VISIBLE);
+
                 }else Toast.makeText(MainActivity.this, "Campo CEP vazio!", Toast.LENGTH_SHORT).show();
                 
 
