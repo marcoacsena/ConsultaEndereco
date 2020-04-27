@@ -11,9 +11,10 @@ public class Cep {
     @SerializedName("bairro")
     private String bairro;
     @SerializedName("localidade")
-    private String localidade;
+    private String cidade;
     @SerializedName("uf")
     private String uF;
+    private String cep;
 
     public String getLogradouro() {
         return logradouro;
@@ -39,12 +40,12 @@ public class Cep {
         this.bairro = bairro;
     }
 
-    public String getLocalidade() {
-        return localidade;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setLocalidade(String localidade) {
-        this.localidade = localidade;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getuF() {
@@ -53,5 +54,13 @@ public class Cep {
 
     public void setuF(String uF) {
         this.uF = uF;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText cep;
     private Button btnBucarCep;
     private TextView tvResultado;
+    private ProgressBar progressBar;
     
 
     @Override
@@ -33,13 +35,21 @@ public class MainActivity extends AppCompatActivity {
         cep = findViewById(R.id.tieCep);
         btnBucarCep = findViewById(R.id.btnBuscarCep);
         tvResultado = findViewById(R.id.tvResultado);
+        progressBar = findViewById(R.id.progressBar);
 
         btnBucarCep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                progressBar.setVisibility(View.VISIBLE);
+
                 String cepDigitado = cep.getText().toString();
+
+                if(!cepDigitado.isEmpty()){
+                    obterCep(cepDigitado);
+                }else Toast.makeText(MainActivity.this, "Campo CEP vazio!", Toast.LENGTH_SHORT).show();
                 
-                obterCep(cepDigitado);
+
             }
         });
     }
@@ -54,9 +64,14 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Cep> call, Response<Cep> response) {
                 if(response.isSuccessful()){
 
+
                     Cep cep = response.body();
 
-                    tvResultado.setText("O bairro é: " +cep.getBairro());
+                    tvResultado.setText("- Logradouro: " +cep.getLogradouro() +"\n" +"- Complemento: " +cep.getComplemento() +"\n"
+                            + "- Bairro: " +cep.getBairro() +"\n" + "- Cidade: " +cep.getCidade() +"\n" +"- Cep.: " +cep.getCep());
+
+                    tvResultado.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.INVISIBLE);
                 }
             }
 
