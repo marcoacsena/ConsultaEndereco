@@ -67,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
                     Cep cep = response.body();
 
-                    tvResultado.setText("- Logradouro: " +cep.getLogradouro() +"\n" +"- Complemento: " +cep.getComplemento() +"\n"
+                    String logradouro;
+                    logradouro = "- Logradouro: " +cep.getLogradouro() +"\n";
+
+                    tvResultado.setText(logradouro +"- Complemento: " +cep.getComplemento() +"\n"
                             + "- Bairro: " +cep.getBairro() +"\n" + "- Cidade: " +cep.getCidade() +"\n" +"- Cep.: " +cep.getCep());
 
                     tvResultado.setVisibility(View.VISIBLE);

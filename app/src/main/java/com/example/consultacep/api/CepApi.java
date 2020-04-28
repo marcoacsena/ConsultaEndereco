@@ -8,6 +8,6 @@ import retrofit2.http.Path;
 
 public interface CepApi {
 
-    @GET("{CEP}/json/")
+    @GET("{CEP}/json")
     Call<Cep> getCep(@Path("CEP") String CEP);
 }
