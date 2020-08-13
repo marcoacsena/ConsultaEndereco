@@ -93,8 +93,13 @@ public class MainActivity extends AppCompatActivity {
                 }else{
 
                     int codigoErro = response.code();
-                    Toast.makeText(MainActivity.this, "Código do erro: " +codigoErro,
-                            Toast.LENGTH_SHORT).show();
+
+                        if(codigoErro == 404) {
+                            Toast.makeText(MainActivity.this, "Código do erro: " + codigoErro
+                                    +"." +" Site Via Cep não foi encontrado!",
+                                    Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.INVISIBLE);
+                        }
                 }
             }
 
