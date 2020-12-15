@@ -82,7 +82,11 @@ public class MainActivity extends AppCompatActivity {
                     String endereco = "";
 
                     for(String item: cep.keySet()){
-                        endereco+= "- " +item +": " +cep.get(item)  +"\n";
+
+                        if(item.equals("unidade") || item.equals("gia")
+                                || item.equals("ibge")) {
+                          break;
+                        } else endereco+= "- " +item +": " +cep.get(item)  +"\n";
 
                     }
 

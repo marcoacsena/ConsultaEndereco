@@ -2,18 +2,20 @@ package com.example.consultacep.model;
 
 import com.google.gson.annotations.SerializedName;
 
+
 public class Cep {
 
-    @SerializedName("logradouro")
+    //@SerializedName("logradouro")
     private String logradouro;
-    @SerializedName("complemento")
+    //@SerializedName("complemento")
     private String complemento;
-    @SerializedName("bairro")
+    //@SerializedName("bairro")
     private String bairro;
-    @SerializedName("localidade")
+    //@SerializedName("localidade")
     private String cidade;
-    @SerializedName("uf")
+    //@SerializedName("uf")
     private String uF;
+    //@SerializedName("cep")
     private String cep;
 
     public String getLogradouro() {
